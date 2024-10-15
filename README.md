@@ -10,5 +10,5 @@ Once they proceed to checkout, they are directed to a payment page (currently on
 Upon successful payment, the customer will receive an order confirmation message. Additionally, customers can access their order history to view past purchases.
 There is also one more feature, filter by name where user can search the medicine by name. 
  
-Added DB setup file and also screenshots of the application.
+Added DB setup file of the application.
 
