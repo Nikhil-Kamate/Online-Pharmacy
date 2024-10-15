@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 70px; /* Adjusted for fixed navbar */
+    display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #004DA1;
+    text-align: center; /* Center-align the heading */
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; /* Ensure the table takes full width */
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px; /* Add padding for better readability */
+}
+
+.table thead th {
+    background-color: #004DA1;
+    color: white;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-primary, .btn-danger {
+    margin: 0 5px;
+}
+
+.btn-primary {
+    background-color: #004DA1;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #003a75;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Set column widths */
+.name-column {
+    width: 20%; /* Increased width */
+}
+
+.category-column {
+    width: 15%; /* Increased width */
+}
+
+.description-column {
+    width: 30%; /* Increased width */
+}
+
+.price-column {
+    width: 15%; /* Increased width */
+}
+
+.stock-column {
+    width: 10%; /* Increased width */
+}
+
+.company-column {
+    width: 15%; /* Increased width */
+}
+
+.manufactured-date-column {
+    width: 15%; /* Increased width */
+}
+
+.expire-date-column {
+    width: 20%; /* Increased width */
+}
+
+.actions-column {
+    width: 20%; /* Increased width */
+}
+
+.photo-column {
+    width: 15%; /* Increased width */
+}
+
+/* Style for the medicine photo */
+.medicine-photo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Ensures the image fits within the specified dimensions */
+    border-radius: 4px; /* Adds rounded corners */
+}
+ footer {
+    bottom: 0;
+    color: white;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; 
+}  

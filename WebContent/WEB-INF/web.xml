@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Login</display-name>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <filter-name>AdminAuthenticationFilter</filter-name>
+    <filter-class>com.crimsonlogic.filter.AdminAuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AdminAuthenticationFilter</filter-name>
+    <url-pattern>/adminHome.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminAuthenticationFilter</filter-name>
+    <url-pattern>/addMedicine.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminAuthenticationFilter</filter-name>
+    <url-pattern>/DisplayMedicinesServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AdminAuthenticationFilter</filter-name>
+    <url-pattern>/EditMedicineServlet</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>UserAuthenticationFilter</filter-name>
+    <filter-class>com.crimsonlogic.filter.UserAuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UserAuthenticationFilter</filter-name>
+    <url-pattern>/user-home</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>UserAuthenticationFilter</filter-name>
+    <url-pattern>/cart.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>UserAuthenticationFilter</filter-name>
+    <url-pattern>/processPayment</url-pattern>
+  </filter-mapping>
+</web-app>
