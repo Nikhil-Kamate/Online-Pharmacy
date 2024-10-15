@@ -1,0 +1,141 @@
+DB set up for Pharmacy 
+ 
+CREATE TABLE users (
+
+    userId SERIAL PRIMARY KEY,
+
+    user_firstName VARCHAR(50) NOT NULL,
+
+    user_lastName VARCHAR(50) NOT NULL,
+
+    user_email VARCHAR(100) NOT NULL UNIQUE,
+
+    user_password VARCHAR(255) NOT NULL,
+
+    user_phoneNo BIGINT NOT NULL UNIQUE,
+
+    user_address TEXT,
+
+    user_dateofBirth DATE
+
+);
+ 
+CREATE TABLE medicines (
+
+    medicineId SERIAL PRIMARY KEY,
+
+    medicineName VARCHAR(255) NOT NULL,
+
+    medicineCategory VARCHAR(255),
+
+    medicineDescription TEXT,
+
+    medicinePrice DECIMAL(10, 2),
+
+    medicineStockQuantity INT,
+
+    medicineCompany VARCHAR(255),
+
+    medicineManufacturedDate DATE,
+
+    medicineExpireDate DATE
+
+);
+
+CREATE TABLE orders (
+
+    order_id SERIAL PRIMARY KEY,
+
+    user_id INT NOT NULL,
+
+    order_date DATE NOT NULL,
+
+    total_amount DOUBLE PRECISION NOT NULL,
+
+    FOREIGN KEY (user_id) REFERENCES users(userid)
+
+);
+
+CREATE TABLE order_details (
+
+    order_details_id SERIAL PRIMARY KEY,
+
+    order_id INT NOT NULL,
+
+    medicine_id INT NOT NULL,
+
+    quantity INT NOT NULL,
+
+    price DOUBLE PRECISION NOT NULL,
+
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+
+    FOREIGN KEY (medicine_id) REFERENCES medicines(medicineid)
+
+);
+
+CREATE TABLE payment (
+
+    payment_id SERIAL PRIMARY KEY,
+
+    order_id INTEGER NOT NULL,
+
+    payment_date DATE NOT NULL,
+
+    amount DECIMAL(10, 2) NOT NULL,
+
+    payment_method VARCHAR(50) NOT NULL,
+
+    payment_status VARCHAR(20) NOT NULL,
+
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) 
+
+);
+
+ALTER TABLE public.order_details
+
+DROP CONSTRAINT order_details_order_id_fkey;
+
+ALTER TABLE public.order_details
+
+ADD CONSTRAINT order_details_order_id_fkey
+
+    FOREIGN KEY (order_id)
+
+    REFERENCES public.orders (order_id)
+
+    ON DELETE CASCADE;
+
+ALTER TABLE public.order_details
+
+DROP CONSTRAINT order_details_medicine_id_fkey;
+
+ALTER TABLE public.order_details
+
+ADD CONSTRAINT order_details_medicine_id_fkey
+
+    FOREIGN KEY (medicine_id)
+
+    REFERENCES public.medicines (medicineid)
+
+    ON DELETE CASCADE;
+ 
+CREATE TABLE public.admin (
+
+    admin_id SERIAL PRIMARY KEY,    
+
+    email VARCHAR(100) NOT NULL UNIQUE,  
+
+    password VARCHAR(255) NOT NULL    
+
+);
+ 
+INSERT INTO public.admin (email, password)
+
+VALUES ('admin@pharma.com', 'admin@123');
+ 
+ 
+ALTER TABLE medicines
+
+ADD COLUMN medicinePhotoPath VARCHAR(255);
+ 
